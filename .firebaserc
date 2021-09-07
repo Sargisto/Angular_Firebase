@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-project-1-304208": {
+      "hosting": {
+        "carrotFirebase": [
+          "my-project-1-304208"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-demo-9c2d0"
+  }
+}

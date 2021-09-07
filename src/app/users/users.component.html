@@ -1,0 +1,58 @@
+<div class="main">
+    <!-- Selected item -->
+    
+    <div class="selected__Form">
+        <h3>Users Arman</h3>
+        <div class="row  justify-content-end">
+            <div class="col-2">Name</div>
+            <div class="col-3">Surname</div>
+            <div class="col-3">Age</div>
+        </div>
+        <div class="input-group" *ngFor="let item of myItems | keyvalue">
+    
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <span class="key"> Key : <b>{{item.key}}</b></span> 
+              <input type="radio" name="selected" (click)="selectItem(item)"
+                aria-label="Radio button for following text input">
+            </div>
+          </div>
+      
+          <input type="text" class="form-control" placeholder="user name" [(ngModel)]="item.value.name" 
+            aria-label="Text input with radio button">
+          <input type="text" class="form-control" placeholder="user surname" [(ngModel)]="item.value.surname" 
+            aria-label="Text input with radio button">
+          <input type="number" class="form-control" placeholder="user age" [(ngModel)]="item.value.age" 
+            aria-label="Text input with radio button">
+          
+        </div>
+    
+        <div class="buttons">
+          <button type="button" (click)="updateItem(selectedItem.key, selectedItem.value, 'update')" class="btn btn-success">Update</button>
+          <button type="button" (click)="removeItem(selectedItem.key)" class="btn btn-warning">Delete</button>
+          <!-- <button type="button" (click)="removeAll()" class="btn btn-danger">Delete All</button> -->
+        </div>
+      </div>
+    
+      <!-- Create new Data -->
+      <form class="create_Data__Form" #myForm="ngForm" (ngSubmit)="updateItem(key.value, {name: name.value, surname: surname.value, age: age.value}, 'create'); myForm.resetForm()">
+        <div class="form-group">
+          <label for="createKey">Data Key</label>
+          <input type="text" class="form-control" id="createKey"  placeholder="Enter Key" #key>
+        </div>
+        <div class="form-group">
+          <label for="userName"><span class="required"></span>User Name</label>
+          <input type="text" class="form-control" id="userName" placeholder="Enter Name" #name>
+        </div>
+        <div class="form-group">
+          <label for="userSurname"><span class="required"></span>User Surname</label>
+          <input type="text" class="form-control" id="userSurname" placeholder="Enter Surname" #surname>
+        </div>
+        <div class="form-group">
+          <label for="userAge"><span class="required"></span>User Age</label>
+          <input type="number" class="form-control" id="userAge" placeholder="Enter Age" #age>
+        </div>
+        <button class="btn btn-primary">Create</button>
+      </form>
+    
+    </div>

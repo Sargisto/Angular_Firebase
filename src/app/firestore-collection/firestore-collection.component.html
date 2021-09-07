@@ -1,0 +1,56 @@
+<div class="main">
+    <!-- Selected item -->
+    <h1>Shop</h1>
+    <div class="selected__Form" *ngFor="let item of shopDataDocument">
+
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <span class="doc"> Document : <b>{{item.DocumentId}}</b></span>
+                <input type="radio" name="selected" (click)="selectItem(item.DocumentId, item)"
+                    aria-label="Radio button for following text input">
+            </div>
+      
+        </div><br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="key"> Key : <b>id</b></span>
+                </div>
+            </div>
+            <input type="number" class="form-control" placeholder="Write text" [(ngModel)]="item.DocumentValue.id">
+            <!-- <input type="text" class="form-control" placeholder="Write text" [(ngModel)]="prop.value"> -->
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="key"> Key : <b>name</b></span>
+                </div>
+            </div>
+            <input type="text" class="form-control" placeholder="Write text" [(ngModel)]="item.DocumentValue.name">
+        </div>     
+    </div>
+
+    <div class="buttons">
+        <button type="button" (click)="updateItem('update')"
+            class="btn btn-success">Update</button>
+        <button type="button" (click)="removeItem()" class="btn btn-warning">Delete</button>
+    </div><br>
+
+      <!-- Create new Data -->
+      <div class="selected__Form">
+        <div class="form-group">
+            <label for="createKey">Document Id</label>
+            <input type="text" class="form-control" id="createKey"  [(ngModel)]="createItem.DocumentId"  placeholder="Document Id" >
+          </div>
+          <div class="form-group">
+            <label for="userAge"><span class="required"></span>Id</label>
+            <input type="number" class="form-control" id="userAge" placeholder="Id" [(ngModel)]="createItem.DocumentValue.id" >
+          </div>
+          <div class="form-group">
+              <label for="userSurname"><span class="required"></span>Name</label>
+              <input type="text" class="form-control" id="userSurname" placeholder="Name" [(ngModel)]="createItem.DocumentValue.name" >
+            </div>
+          <button class="btn btn-primary" (click)="updateItem('create')">Create</button>
+      </div>
+    
+</div>

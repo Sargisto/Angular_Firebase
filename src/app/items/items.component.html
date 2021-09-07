@@ -1,0 +1,41 @@
+<div class="main">
+<!-- Selected item -->
+
+<div class="selected__Form">
+    <h3>Items</h3>
+    <div class="input-group" *ngFor="let item of myItems | keyvalue">
+
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <span class="key"> Key : <b>{{item.key}}</b></span> 
+          <input type="radio" name="selected" (click)="selectItem(item)"
+            aria-label="Radio button for following text input">
+        </div>
+      </div>
+  
+      <input type="text" class="form-control" placeholder="item name" [(ngModel)]="item.value" 
+        aria-label="Text input with radio button">
+      
+    </div>
+
+    <div class="buttons">
+      <button type="button" (click)="updateItem(selectedItem.key, selectedItem.value, 'update')" class="btn btn-success">Update</button>
+      <button type="button" (click)="removeItem(selectedItem.key)" class="btn btn-warning">Delete</button>
+      <!-- <button type="button" (click)="removeAll()" class="btn btn-danger">Delete All</button> -->
+    </div>
+  </div>
+
+  <!-- Create new Data -->
+  <form class="create_Data__Form" (ngSubmit)="updateItem(key.value, val.value, 'create')">
+    <div class="form-group">
+      <label for="createKey">Data Key</label>
+      <input type="text" class="form-control" id="createKey"  placeholder="Enter Key" #key>
+    </div>
+    <div class="form-group">
+      <label for="createValue"><span class="required">*</span>Data Value</label>
+      <input type="text" class="form-control" id="createValue" placeholder="Enter Value" #val>
+    </div>
+    <button class="btn btn-primary">Create</button>
+  </form>
+
+</div>

@@ -1,0 +1,54 @@
+<div class="container trade_container">
+    <h1>Trade</h1>
+    <div class="row justify-content-between">
+        <div class="col-3">
+            <div class="dropdown" (clickOutside)="dropUser = false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownUser" (click)="dropUser = !dropUser"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{selectedUser.DocumentValue.name ? selectedUser.DocumentValue.name : "Users"}}
+                </button>
+                <div class="dropdown-menu" [ngClass]="{'show' : dropUser}" aria-labelledby="dropdownUser">
+                  <a class="dropdown-item" *ngFor="let user of usersDataDocument" href="javascript:" (click)="selectUser(user)">{{user.DocumentValue.name}}</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-3">
+            <div class="dropdown" (clickOutside)="dropItems = false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownItem" (click)="dropItems = !dropItems"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 {{selectedItem.DocumentValue.name ? selectedItem.DocumentValue.name : "Items"}}
+                </button>
+                <div class="dropdown-menu" [ngClass]="{'show' : dropItems}" aria-labelledby="dropdownItem">
+                  <a class="dropdown-item" *ngFor="let item of itemsDataDocument" href="javascript:"  (click)="selectItem(item)">{{item.DocumentValue.name}}</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-light" (click)="bind()">Bind</button>
+        </div>
+    </div>
+    <div class="row newTradeTable">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">User Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Item Id</th>
+                    <th scope="col">Item Name</th>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let trade of tradeDataDocument" >
+                    <td>{{trade.DocumentValue.user_id}}</td>
+                    <td>{{trade.DocumentValue.user_name}}</td>
+                    <td>{{trade.DocumentValue.item_id}}</td>
+                    <td>{{trade.DocumentValue.item_name}}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="removeItem(trade.DocumentId)">Remove</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

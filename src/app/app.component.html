@@ -1,0 +1,17 @@
+
+  <h1>Fire Data Base</h1>
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-3">
+        <button type="button" [routerLink]="[router.url === '/users' ? '/items' : '/users']"  class="btn btn-info">
+          {{router.url === '/users' ? 'Items' : 'Users'}} -->
+        </button>
+      </div>
+      <div class="col-3">
+        <button type="button" [routerLink]="['/firestoreCollection']" class="btn btn-warning">Firestore Collection</button><br><br>
+        <button type="button" [routerLink]="['/trade']" class="btn btn-dark">Firestore Trade</button>
+      </div>
+    </div>
+  </div>
+
+<router-outlet></router-outlet>

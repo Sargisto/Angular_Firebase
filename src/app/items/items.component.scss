@@ -1,0 +1,43 @@
+.main {
+    width: 480px;
+    // height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1, h3 {
+      color: white;
+    }
+   
+    label {
+      color: white;
+    }
+  
+    .input-group {
+      margin-bottom: 15px;
+    }
+  
+    .key {
+      margin-right: 10px;
+    }
+  
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+  
+  .selected__Form {
+    border: 2px solid skyblue;
+    padding: 20px;
+  }
+  
+  .create_Data__Form {
+    padding: 20px;
+    border: 2px solid skyblue;
+  }
+  
+  .required {
+    color: red;
+  }
